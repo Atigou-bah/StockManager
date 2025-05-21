@@ -5,7 +5,7 @@ public class ProduitElectronique extends Produit {
     private String marque;
 
 
-    public ProduitElectronique(int id, String nom, String type, int quantite, int prix_achat, int prixVente, int garantie, String marque){
+    public ProduitElectronique(int id, String nom, String type, int quantite, double prix_achat, double prixVente, int garantie, String marque){
         super(id,nom,  type,  quantite,prix_achat,prixVente); 
         this.garantie = garantie; 
         this.marque = marque; 
@@ -29,6 +29,11 @@ public class ProduitElectronique extends Produit {
     // Setter pour marque
     public void setMarque(String marque) {
         this.marque = marque;
+    }
+    public String toString() {
+        return super.toString() +
+               "Marque : " + getMarque() + "\n" + 
+               "Garantie : " + getGarantie() + " mois";
     }
 
 }

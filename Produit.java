@@ -4,12 +4,12 @@ public class Produit {
     private String nom; 
     private String type; 
     private int quantite; 
-    private int prixAchat; 
-    private int prixVente; 
+    private double prixAchat; 
+    private double prixVente; 
 
 
 
-    public Produit(int id, String nom, String type, int quantite, int prix_achat, int prix_vente){
+    public Produit(int id, String nom, String type, int quantite, double prix_achat, double prix_vente){
         this.id = id; 
         this.nom = nom; 
         this.type = type; 
@@ -34,10 +34,10 @@ public class Produit {
     public int getQuantite(){
         return quantite; 
     }
-    public int getPrixAchat(){
+    public double getPrixAchat(){
         return prixAchat; 
     }
-    public int getPrixVente(){
+    public double getPrixVente(){
         return prixVente; 
     }
 
@@ -67,8 +67,8 @@ public class Produit {
         return "Nom du produit : " + getNom() + "\n" + 
                 "Type : " + getType() + "\n" + 
                 "Quantité : " + getQuantite() + "\n" + 
-                "Prix d'achat : " + getPrixAchat() + "\n" + 
-                "Prix de vente : " + getPrixVente() + "\n"; 
+                "Prix d'achat : " + getPrixAchat() +" $ " + "\n" + 
+                "Prix de vente : " + getPrixVente() + " $ " + "\n"; 
 
     }
     
