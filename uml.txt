@@ -1,0 +1,69 @@
+@startuml
+
+abstract class Produit {
+  - id: int
+  - nom: String
+  - type: String
+  - quantite: int
+  - prixAchat: double
+  - prixVente: double
+  + calculerMarge(): double
+  + toString(): String
+}
+
+class ProduitAlimentaire {
+  - datePeremption: Date
+}
+
+class ProduitElectronique {
+  - garantie: int
+  - marque: String
+}
+
+class ProduitVestimentaire {
+  - taille: String
+  - couleur: String
+  - genre: String
+}
+
+class Vente {
+  - produit: Produit
+  - quantiteVendue: int
+  - dateVente: Date
+  + getMontant(): double
+}
+
+class HistoriqueVente {
+  - ventes: List<Vente>
+  + ajouterVente(v: Vente)
+  + getChiffreAffaires(): double
+  + afficherVentes()
+  + filtrerParProduit(id: int)
+}
+
+class StockManager {
+  - produits: List<Produit>
+  + ajouterProduit(p: Produit)
+  + supprimerProduit(id: int)
+  + chercherProduit(id: int): Produit
+  + afficherProduits()
+  + afficherParType(type: String)
+  + mettreAJourQuantite(id: int, qte: int)
+  + calculerValeurStock(): double
+}
+
+class InterfaceUtilisateurConsole {
+  + lancerMenu()
+}
+
+Produit <|-- ProduitAlimentaire
+Produit <|-- ProduitElectronique
+Produit <|-- ProduitVestimentaire
+
+Vente --> Produit
+HistoriqueVente --> Vente
+StockManager --> Produit
+InterfaceUtilisateurConsole --> StockManager
+InterfaceUtilisateurConsole --> HistoriqueVente
+
+@enduml
