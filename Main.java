@@ -29,6 +29,7 @@ public class Main {
         stock.ajouterProduit(Pv2);
 
         InterfaceUtilisateur i = new InterfaceUtilisateur(); 
-        i.lancerMenu(stock);
+        HistoriqueVente historique = new HistoriqueVente(); 
+        i.lancerMenu(stock,historique);
     }
 }

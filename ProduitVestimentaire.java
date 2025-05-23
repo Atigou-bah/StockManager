@@ -52,7 +52,7 @@ public class ProduitVestimentaire extends Produit {
         return super.toString() +
             "Taille : " + taille + "\n" + 
             "Couleur : " + couleur + "\n" +
-            "Genre : " + genre;
+            "Genre : " + genre + "\n" + "******************";
     }
 
 

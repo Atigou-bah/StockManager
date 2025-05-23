@@ -20,6 +20,12 @@ public class HistoriqueVente {
     }
 
     public void afficherVentes(){
+        if (ventes.isEmpty()) {
+            System.out.println("il n'y a eu aucune vente");
+            System.out.println("****************");
+            return; 
+        }
+        System.out.println("Voici toutes les factures ");
         for(Vente v : ventes){
             System.out.println(v); // appelle la methode toString de la classe ventes
         }

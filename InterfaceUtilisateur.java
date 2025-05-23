@@ -7,7 +7,7 @@ public class InterfaceUtilisateur {
     public void affichageMenuPrincipale(){
         System.out.println("Bonjour Bienvenue dans votre stock");
         System.out.println("1- Consultation/operation sur  le stock ");
-        System.out.println("2- Vendre un produit ");
+        System.out.println("2- Vente ");
         System.out.println("3- Quitter ");
         System.out.println("**********************");
     }
@@ -127,21 +127,23 @@ public class InterfaceUtilisateur {
     }
     }
 
-    public Vente vente(StockManager stock, int id, int quantite){
+    public Vente vente(StockManager stock, int id, int quantite, HistoriqueVente historiqueVente){
         Produit p = stock.chercherProduit(id); 
         if (p.getQuantite() - quantite <= 0) {
             System.out.println("Impossible de vendre cette quantité vous disposez de : " + p.getQuantite());
             stock.supprimerProduit(id);
             Vente v =  new Vente(p,p.getQuantite(),LocalDate.now());
+            historiqueVente.ajouterVente(v);
             return v ; 
         }
         p.setQuantite(p.getQuantite() - quantite);
         Vente v = new Vente(p, quantite, LocalDate.now()); 
+        historiqueVente.ajouterVente(v);
         return v; 
 
     }
 
-    public void facture(StockManager stock){
+    public void facture(StockManager stock, HistoriqueVente historiqueVente){
         Scanner scanner = new Scanner(System.in); 
         System.out.println("Donnez l'id du produit que vous voulez vendre : ");
         int id = scanner.nextInt(); 
@@ -149,12 +151,48 @@ public class InterfaceUtilisateur {
         Scanner scanner2 = new Scanner(System.in); 
         System.out.println("Donnez la quantité : ");
         int quantite = scanner2.nextInt(); 
-        Vente v = vente(stock, id, quantite); 
+        Vente v = vente(stock, id, quantite,historiqueVente); 
         System.out.println(v.toString());
 
     }
 
-    public void lancerMenu(StockManager stock){
+    public void menuHistorique(HistoriqueVente historique){
+        System.out.println("1- Afficher l'historique");
+        System.out.println("2- Afficher le chiffre d'affaires ");
+        System.out.println("3- Quitter  ");
+        Scanner scanner = new Scanner(System.in); 
+        switch (scanner.nextInt()) {
+            case 1:
+                    historique.afficherVentes();
+                break;
+            case 2:
+                System.out.println("le chiffre d'affaires est le suivant : " + historique.getChiffreAffaires() + "\n" + "*****************");
+            default:
+                break;
+        }
+    }
+
+
+
+    public void menuVente(StockManager stock, HistoriqueVente historique){
+        System.out.println("1- Vendre un produit");
+        System.out.println("2- Historique");
+        System.out.println("3- Quitter");
+        Scanner scanner = new Scanner(System.in); 
+        System.out.println("Entrez un numero : ");
+        int choix = scanner.nextInt(); 
+        switch (choix) {
+            case 1 :
+                    facture(stock,historique); 
+                break;
+            case 2 : 
+                    menuHistorique(historique);
+            default:
+                break;
+        }
+    }
+
+    public void lancerMenu(StockManager stock, HistoriqueVente historiqueVente){
         boolean running = true; 
         
         while (running) {
@@ -164,7 +202,7 @@ public class InterfaceUtilisateur {
                     stock(stock, running);
                     break;
                 case 2: 
-                    facture(stock);
+                    menuVente(stock, historiqueVente);;
                     break; 
 
                 default:

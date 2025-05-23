@@ -33,7 +33,7 @@ public class ProduitElectronique extends Produit {
     public String toString() {
         return super.toString() +
                "Marque : " + getMarque() + "\n" + 
-               "Garantie : " + getGarantie() + " mois";
+               "Garantie : " + getGarantie() + " mois" + "\n" + "******************";
     }
 
 }

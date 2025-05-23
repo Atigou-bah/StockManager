@@ -5,7 +5,7 @@ public class ProduitAlimentaire extends Produit {
 
 
     public ProduitAlimentaire(int id, String nom, String type, int quantite, double prix_achat, double prixVente, LocalDate dlc){
-        super(id, nom, type, quantite,prix_achat,prixVente); 
+        super(id, nom, type,quantite,prix_achat,prixVente); 
         this.datePerremption = dlc; 
     }
     public LocalDate getDatePerremption() {
@@ -18,7 +18,7 @@ public class ProduitAlimentaire extends Produit {
 
     public String toString(){
         return super.toString() +  
-            "Date de perremption : " + getDatePerremption();
+            "Date de perremption : " + getDatePerremption() + "\n" + "******************";
             
         }
 
