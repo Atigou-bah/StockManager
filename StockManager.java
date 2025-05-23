@@ -1,11 +1,8 @@
 import java.util.ArrayList;
 import java.util.Iterator;
 public class StockManager {
-    private ArrayList<Produit> produits; 
+    static public ArrayList<Produit> produits = new ArrayList<>(); 
 
-    public StockManager(){
-        this.produits = new ArrayList<>(); 
-    }
 
     public void ajouterProduit(Produit p){
         this.produits.add(p); 

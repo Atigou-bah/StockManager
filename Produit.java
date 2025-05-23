@@ -16,6 +16,7 @@ public class Produit {
         this.quantite = quantite; 
         this.prixAchat = prix_achat; 
         this.prixVente = prix_vente; 
+
     }
 
     double calculerMarge(){
@@ -64,7 +65,8 @@ public class Produit {
     }
     
     public String toString(){
-        return "Nom du produit : " + getNom() + "\n" + 
+        return  "Id : " + getId() +  "\n" +
+                "Nom du produit : " + getNom() + "\n" + 
                 "Type : " + getType() + "\n" + 
                 "Quantité : " + getQuantite() + "\n" + 
                 "Prix d'achat : " + getPrixAchat() +" $ " + "\n" + 

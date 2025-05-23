@@ -51,7 +51,7 @@ public class Vente {
                 "Prix de vente : " + getProduit().getPrixVente() + "\n" + 
                 "Quantite vendue : " + getQuantiteVendue() + "\n" + 
                 "Date de vendue : " + getDateVente() + "\n" + 
-                "Montant : " + getMontant(); 
+                "Montant : " + getMontant() + "\n" + "******************" ;
     }
 
 

@@ -28,12 +28,7 @@ public class Main {
         stock.ajouterProduit(Pv1);
         stock.ajouterProduit(Pv2);
 
-        // Optionnel : afficher les produits
-        stock.afficherProduit();
-        //stock.supprimerProduit(1);
-        //stock.afficherProduit();
-        //stock.afficherParType("alimentaire");
-        Vente vente = new Vente(Pv2, 1, dlc2); 
-        System.out.println(vente);
+        InterfaceUtilisateur i = new InterfaceUtilisateur(); 
+        i.lancerMenu(stock);
     }
 }
