@@ -1,5 +1,7 @@
 import java.time.LocalDate;
 
+import javax.swing.SwingUtilities;
+
 public class Main {
     public static void main(String[] args) {
 
@@ -28,8 +30,8 @@ public class Main {
         stock.ajouterProduit(Pv1);
         stock.ajouterProduit(Pv2);
 
-        InterfaceUtilisateur i = new InterfaceUtilisateur(); 
-        HistoriqueVente historique = new HistoriqueVente(); 
-        i.lancerMenu(stock,historique);
+       // InterfaceUtilisateur i = new InterfaceUtilisateur(); 
+        //HistoriqueVente historique = new HistoriqueVente(); 
+        //i.lancerMenu(stock,historique);
     }
 }

@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
 public class StockManager {
     static public ArrayList<Produit> produits = new ArrayList<>(); 
 
@@ -7,6 +8,10 @@ public class StockManager {
     public void ajouterProduit(Produit p){
         this.produits.add(p); 
     }
+
+    public static ArrayList<Produit> getProduits() {
+    return produits;
+}
 
     public void supprimerProduit(int id) {
         Iterator<Produit> it = produits.iterator();
@@ -60,6 +65,14 @@ public class StockManager {
             valeur += p.getQuantite()*p.getPrixAchat(); 
         }
         return valeur; 
+    }
+    public boolean idExiste(int id){
+        for(Produit p: produits){
+            if (p.getId() == id) {
+                return true; 
+            }
+        }
+        return false; 
     }
 
 }
