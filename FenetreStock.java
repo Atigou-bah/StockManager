@@ -46,30 +46,7 @@ public class FenetreStock extends JFrame {
 
 
         bouton1.addActionListener(e ->{
-            ArrayList<Produit> produits = stock.getProduits(); // recuperation de la liste de produits 
-
-
-            String[] colonnes = {"Id", "Nom", "Type", "Quantité", "Prix d'achat", "Prix de vente"}; 
-            String[][] donnees = new String[produits.size()][6];
-
-            for (int i = 0; i < produits.size(); i++) {
-                Produit p = produits.get(i);
-                donnees[i][0] = String.valueOf(p.getId()); 
-                donnees[i][1] = p.getNom();
-                donnees[i][2] = p.getType(); 
-                donnees[i][3] = String.valueOf(p.getQuantite()); 
-                donnees[i][4] = String.valueOf(p.getPrixAchat()); 
-                donnees[i][5] = String.valueOf(p.getPrixVente()); 
-            }
-            JTable table = new JTable(donnees, colonnes);
-            JScrollPane scrollPane = new JScrollPane(table);
-        
-            JFrame fenetreTable = new JFrame("Produits en stock");
-            fenetreTable.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-            fenetreTable.setSize(500, 300);
-            fenetreTable.add(scrollPane);
-            fenetreTable.setLocationRelativeTo(null);
-            fenetreTable.setVisible(true);
+            new FenetreAffProduit(stock); 
         });
         bouton2.addActionListener(e->{
             new FormAjoutProduit(stock);  
@@ -80,7 +57,11 @@ public class FenetreStock extends JFrame {
         });
 
         bouton4.addActionListener(e->{
+            new FormChercherProduit(stock); 
+        });
 
+        bouton5.addActionListener(e->{
+            JOptionPane.showMessageDialog(this, "La valeur du stock est : " + String.valueOf(stock.calculerValeurStock()) + "$");
         });
 
 
@@ -95,7 +76,7 @@ public class FenetreStock extends JFrame {
         // 🧩 Lignes manquantes
         add(panel);            // Ajouter le panel à la fenêtre
         setTitle("Stock");
-        setSize(800, 300);
+        setSize(1000, 800);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
         setVisible(true);      // Afficher la fenêtre

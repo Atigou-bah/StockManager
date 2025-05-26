@@ -2,7 +2,7 @@ import java.time.LocalDate;
 
 import javax.swing.SwingUtilities;
 
-public class Main {
+public class Console {
     public static void main(String[] args) {
 
         StockManager stock = new StockManager();
@@ -30,8 +30,8 @@ public class Main {
         stock.ajouterProduit(Pv1);
         stock.ajouterProduit(Pv2);
 
-       // InterfaceUtilisateur i = new InterfaceUtilisateur(); 
-        //HistoriqueVente historique = new HistoriqueVente(); 
-        //i.lancerMenu(stock,historique);
+       InterfaceUtilisateur i = new InterfaceUtilisateur(); 
+       HistoriqueVente historique = new HistoriqueVente(); 
+        i.lancerMenu(stock,historique);
     }
 }

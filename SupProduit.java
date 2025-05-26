@@ -4,7 +4,7 @@ import java.awt.event.*;
 public class SupProduit extends JFrame{
     public SupProduit(StockManager stock){
         setTitle("Suppression de produit");
-        setSize(400, 150);
+        setSize(500, 600);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
     
@@ -34,7 +34,6 @@ public class SupProduit extends JFrame{
     
         JPanel btnPanel = new JPanel();
         btnPanel.add(valider);
-    
         add(panel, BorderLayout.CENTER);
         add(btnPanel, BorderLayout.SOUTH);
     

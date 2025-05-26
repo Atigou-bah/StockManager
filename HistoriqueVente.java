@@ -1,16 +1,16 @@
 import java.util.ArrayList;
 
 public class HistoriqueVente {
-    private ArrayList<Vente> ventes; 
+    public static ArrayList<Vente> ventes = new ArrayList<>() ; 
 
-    public HistoriqueVente(){
-        this.ventes = new ArrayList<>(); 
-    }
 
     public void ajouterVente(Vente v){
         ventes.add(v); 
     }
 
+    public static ArrayList<Vente> getVentes() {
+        return ventes;
+    }
     public double getChiffreAffaires(){
         double chiffre = 0; 
         for(Vente v: ventes){

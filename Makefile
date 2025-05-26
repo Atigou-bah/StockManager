@@ -1,26 +1,38 @@
 # Nom du compilateur
 JAVAC = javac
 
+# Dossier de destination des .class
+BIN = bin
+
 # Fichiers sources
 SRC = $(wildcard *.java)
 
-# Fichiers objets (fichiers compilés)
+# Classes à générer dans bin
 CLASSES = $(SRC:.java=.class)
 
-# Classe contenant la méthode main
-MAIN = Main
+# Classes principales
+CONSOLE = Console
+INTERGRAPH = Interface
 
 # Cible par défaut
-all: $(CLASSES)
+all: $(BIN) $(CLASSES)
 
-# Compilation des fichiers .java en .class
+# Créer le dossier bin s'il n'existe pas
+$(BIN):
+	mkdir -p $(BIN)
+
+# Compilation : mettre les .class dans bin
 %.class: %.java
-	$(JAVAC) $<
+	$(JAVAC) -d $(BIN) $<
 
-# Exécution du programme principal
-run: all
-	java $(MAIN)
+# Exécution en console
+console: all
+	java -cp $(BIN) $(CONSOLE)
 
-# Nettoyage des fichiers .class
+# Exécution en interface graphique
+interface: all
+	java -cp $(BIN) $(INTERGRAPH)
+
+# Nettoyage
 clean:
-	rm -f *.class
+	rm -rf $(BIN)

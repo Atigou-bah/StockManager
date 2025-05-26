@@ -6,6 +6,7 @@ public class Interface {
 
         // ajoute de quelque produit 
         StockManager stock = new StockManager();
+        HistoriqueVente historique = new HistoriqueVente(); 
 
         // Produits Electroniques
         ProduitElectronique Pe1 = new ProduitElectronique(1, "voiture", "électronique", 5, 2000, 3000, 24, "Mercedes");
@@ -64,7 +65,7 @@ public class Interface {
             frame.dispose();    // Ferme l'ancienne (optionnel)
         });
         bouton2.addActionListener(e -> {
-            new FenetreVente();
+            new FenetreVente(historique);
             frame.dispose();
         });
         bouton3.addActionListener(e -> System.exit(0));
@@ -74,7 +75,7 @@ public class Interface {
         frame.add(panel, BorderLayout.CENTER);
 
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(800, 500);
+        frame.setSize(1000, 800);
         frame.setLocationRelativeTo(null); // centrer la fenêtre à l'écran
         frame.setVisible(true);
     }
