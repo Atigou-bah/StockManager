@@ -43,7 +43,7 @@ public class Interface {
         panel.add(Box.createVerticalGlue());
 
         // Créer et centrer les boutons
-        JButton bouton1 = new JButton("1 - Consultation/Operation sur le stock");
+        JButton bouton1 = new JButton("1 - Consultation/Opérations sur le stock");
         bouton1.setAlignmentX(Component.CENTER_ALIGNMENT);
         panel.add(bouton1);
         panel.add(Box.createVerticalStrut(15));
@@ -65,7 +65,7 @@ public class Interface {
             frame.dispose();    // Ferme l'ancienne (optionnel)
         });
         bouton2.addActionListener(e -> {
-            new FenetreVente(historique);
+            new FenetreVente(historique,stock);
             frame.dispose();
         });
         bouton3.addActionListener(e -> System.exit(0));

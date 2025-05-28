@@ -2,7 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 public class FenetreVente extends JFrame {
 
-     public FenetreVente(HistoriqueVente historique){
+     public FenetreVente(HistoriqueVente historique,StockManager stock){
 
         JPanel panel = new JPanel(); 
         panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
@@ -21,16 +21,22 @@ public class FenetreVente extends JFrame {
         panel.add(Box.createVerticalStrut(15));
 
 
-        JButton bouton5 = new JButton("Quitter");
-        bouton5.setAlignmentX(Component.CENTER_ALIGNMENT);
-        panel.add(bouton5);
+        JButton bouton3 = new JButton("Quitter");
+        bouton3.setAlignmentX(Component.CENTER_ALIGNMENT);
+        panel.add(bouton3);
 
         panel.add(Box.createVerticalGlue());
 
         bouton1.addActionListener(e->{
             new FenetreAffVente(historique); 
         });
+        bouton2.addActionListener(e->{
+            new FormVente(historique, stock); 
+        });
 
+        bouton3.addActionListener(e->System.exit(0));
+
+        
         // 🧩 Lignes manquantes
         add(panel);            // Ajouter le panel à la fenêtre
         setTitle("Stock");

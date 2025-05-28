@@ -71,7 +71,7 @@ public class FenetreStock extends JFrame {
 
 
 
-        bouton6.addActionListener(e->System.exit(0));
+        bouton6.addActionListener(e->dispose());
 
         // 🧩 Lignes manquantes
         add(panel);            // Ajouter le panel à la fenêtre
